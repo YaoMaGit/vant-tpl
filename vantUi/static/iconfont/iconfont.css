@@ -1,0 +1,29 @@
+@font-face {
+	font-family: "iconfont";
+	src: url('./iconfont.ttf') format('truetype');
+}
+
+.van-icon {
+	position: relative;
+	font-family: "iconfont", "vanIcon" !important;
+	font-size: 14px;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+i.van-icon-yooxi:before {
+	content: "\e615";
+}
+
+i.van-icon-wode:before {
+	content: "\e658";
+}
+
+i.van-icon-fenlei:before {
+	content: "\e657";
+}
+
+i.van-icon-quanzi:before {
+	content: "\e62b";
+}
