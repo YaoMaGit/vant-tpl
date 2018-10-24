@@ -1,26 +1,35 @@
 <template>
   <div id="app">
+      <transition name="slide-fade">
+        <router-view/>
+      </transition>
     <tabbar></tabbar>
-    <router-view/>
   </div>
 </template>
 <script>
-// @ is an alias to /src
-import tabbar from '@/components/tabbar.vue'
+import tabbar from "@/components/tabbar.vue";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
     tabbar
   }
-}
+};
 </script>
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  }
+}
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-enter
+/* .slide-fade-leave-active for below version 2.1.8 */ {
+  transform: translateX(100px);
+  opacity: 0;
+}
 </style>
