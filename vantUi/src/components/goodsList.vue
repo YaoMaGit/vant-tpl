@@ -1,6 +1,6 @@
 <template>
   <div class="goodslist">
-                   <div class="goods-item">
+                   <!-- <div class="goods-item">
                     <div class="goods-item-left"><img src="http://static.fenxianglife.com/indexPromo/1cdcf05d39c782ff7f1ac4536c6a0339.jpeg"></div>
                     <div class="goods-item-right ">
                         <div class="goods-item-title">im向 独家！ 童趣！！秋季百搭红色圆领长袖慵懒风提花套头毛衣女</div>
@@ -84,17 +84,37 @@
                             <div class="goods-pick-btn ">平台返 ￥35</div>
                         </div>
                     </div>
-                </div>
+                </div> -->
   </div>
 </template>
 
 <script>
+import api from "../axios/api.js";
+
 export default {
-  name: 'goodslist',
+  name: "goodslist",
   props: {
     msg: String
+  },
+  data(){
+    return{
+      newsListShow:[]
+    }
+    
+  },
+  created() {
+    this.setNewsApi();
+  },
+  methods: {
+    setNewsApi: function() {
+      var _this = this
+      api.JH_news("/news/index", "type=top&key=123456").then(res => {
+        // console.log(res);
+        _this.newsListShow = res.articles;
+      });
+    }
   }
-}
+};
 </script>
 
 <style scoped>

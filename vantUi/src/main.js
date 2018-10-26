@@ -6,6 +6,8 @@ import Vant from 'vant';
 import '../static/iconfont/iconfont.css';
 import 'vant/lib/vant-css/index.css';
 
+require('./mock.js')
+
 Vue.use(Vant);
 Vue.config.productionTip = false
 
