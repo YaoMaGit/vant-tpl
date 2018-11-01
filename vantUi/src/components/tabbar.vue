@@ -1,10 +1,10 @@
 <template>
   <div class="tab">
         <van-tabbar v-model="active">        
-            <van-tabbar-item icon="yooxi" to="./Home">主页</van-tabbar-item>
-            <van-tabbar-item icon="fenlei" to="./Class">分类</van-tabbar-item>
-            <van-tabbar-item icon="quanzi" to="./Pop">圈子</van-tabbar-item>
-            <van-tabbar-item icon="wode" to="./Mine">我的</van-tabbar-item>
+            <van-tabbar-item v-for="(item,index) in tabdata" :key="index" :icon="active==index?item.icon_active:item.icon" :to="item.bath">{{item.name}}</van-tabbar-item>
+            <!-- <van-tabbar-item icon="search" to="./Class">分类</van-tabbar-item>
+            <van-tabbar-item icon="skin" to="./Pop">圈子</van-tabbar-item>
+            <van-tabbar-item icon="wode" to="./Mine">我的</van-tabbar-item> -->
         </van-tabbar>
   </div>
 </template>
@@ -19,8 +19,28 @@ export default {
       tabdata: [
         {
           name: "首页",
-          routerUrl: ""
-        }
+          icon: "dianpu",
+          icon_active:'dianpufill',
+          bath:'./Home',
+        },
+        {
+          name: "分类",
+          icon: "search",
+          icon_active:'searchfill',
+          bath:'./Class',
+        },
+        {
+          name: "圈子",
+          icon: "skin",
+          icon_active:'skinfill',
+          bath:'./Pop',
+        },
+        {
+          name: "我的",
+          icon: "wode",
+          icon_active:'wodefill',
+          bath:'./Mine',
+        },
       ]
     };
   },
