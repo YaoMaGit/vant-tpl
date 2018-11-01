@@ -1,7 +1,12 @@
 <template>
   <div class="home">
 
-              <goodsList></goodsList>
+              <!-- <goodsList></goodsList> -->
+              <div>
+                {{countfn}}
+              </div>
+              <button @click="max()">加1</button>
+              <button @click="min()">减1</button>
   </div>
 </template>
 <script>
@@ -11,12 +16,32 @@ export default {
   name: "home",
   components: {
     goodsList
+  },
+  data() {
+    return {
+      count: '',
+    };
+  },
+  created(){},
+  computed:{
+    countfn(){
+      return this.$store.state.count
+    }
+  },
+  methods: {
+    max() {
+      this.$store.commit("max");
+      console.log(this.$store.state.count) // -> 1
+    },
+    min() {
+      console.log(this.$store.state.count) // -> 1
+      this.$store.commit("min");
+    }
   }
 };
 </script>
 
 
 <style>
-
 </style>
 
