@@ -2,7 +2,6 @@
 @font-face {
 	font-family: 'custom-iconfont';
 	src: url('./iconfont.ttf') format('truetype');
-<<<<<<< HEAD
   }
   
   .van-icon {
@@ -10,20 +9,6 @@
   }
   
 .van-icon-dianpufill:before { content: "\e735"; }
-=======
-}
-
-.van-icon {
-	position: relative;
-	font-family: "iconfont","vanIcon" !important;
-	font-size: 14px;
-	font-style: normal;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-
-i.van-icon-dianpufill:before { content: "\e735"; }
->>>>>>> f27f7575035a2214af9545e569894bdcacb13df8
 
 .van-icon-dianpu:before { content: "\e736"; }
 

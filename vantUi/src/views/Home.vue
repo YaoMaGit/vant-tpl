@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-<<<<<<< HEAD
 
               <goodsList></goodsList>
               <van-nav-bar
@@ -10,12 +9,6 @@
                   left-arrow
                 
                 />
-=======
-              <keep-alive>
-                  <goodsList></goodsList>
-              </keep-alive>
-             
->>>>>>> f27f7575035a2214af9545e569894bdcacb13df8
               <div>
                 {{countfn}}
               </div>

@@ -104,14 +104,6 @@ export default {
   },
   methods: {
     setNewsApi: function() {
-<<<<<<< HEAD
-      var _this = this
-      api.JH_news("/news/index", "type=top&key=123456").then(res => {
-        console.log(JSON.stringify(res));
-
-        _this.newsListShow = res.articles;
-      });
-=======
       var _this = this;
       _this.$api
         .JH_news(_this.$URL.HTTPS.INDEX, "type=top&key=123456")
@@ -119,7 +111,6 @@ export default {
           console.log(res);
           _this.newsListShow = res.articles;
         });
->>>>>>> f27f7575035a2214af9545e569894bdcacb13df8
     }
   }
 };
