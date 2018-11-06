@@ -1,7 +1,14 @@
 <template>
   <div class="home">
 
-              <!-- <goodsList></goodsList> -->
+              <goodsList></goodsList>
+              <van-nav-bar
+                  title="标题"
+                  left-text="返回"
+                  right-text="按钮"
+                  left-arrow
+                
+                />
               <div>
                 {{countfn}}
               </div>
@@ -19,22 +26,22 @@ export default {
   },
   data() {
     return {
-      count: '',
+      count: ""
     };
   },
-  created(){},
-  computed:{
-    countfn(){
-      return this.$store.state.count
+  created() {},
+  computed: {
+    countfn() {
+      return this.$store.state.count;
     }
   },
   methods: {
     max() {
       this.$store.commit("max");
-      console.log(this.$store.state.count) // -> 1
+      console.log(this.$store.state.count); // -> 1
     },
     min() {
-      console.log(this.$store.state.count) // -> 1
+      console.log(this.$store.state.count); // -> 1
       this.$store.commit("min");
     }
   }

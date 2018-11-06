@@ -1,29 +1,25 @@
+
 @font-face {
-	font-family: "iconfont";
+	font-family: 'custom-iconfont';
 	src: url('./iconfont.ttf') format('truetype');
-}
+  }
+  
+  .van-icon {
+	font-family: 'vant-icon', 'custom-iconfont' !important;
+  }
+  
+.van-icon-dianpufill:before { content: "\e735"; }
 
-.van-icon {
-	position: relative;
-	font-family: "iconfont", "vanIcon" !important;
-	font-size: 14px;
-	font-style: normal;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
+.van-icon-dianpu:before { content: "\e736"; }
 
-i.van-icon-dianpufill:before { content: "\e735"; }
+.van-icon-wodefill:before { content: "\e75d"; }
 
-i.van-icon-dianpu:before { content: "\e736"; }
+.van-icon-wode:before { content: "\e75e"; }
 
-i.van-icon-wodefill:before { content: "\e75d"; }
+.van-icon-skinfill:before { content: "\e7cc"; }
 
-i.van-icon-wode:before { content: "\e75e"; }
+.van-icon-skin:before { content: "\e7cd"; }
 
-i.van-icon-skinfill:before { content: "\e7cc"; }
+.van-icon-search:before { content: "\e741"; }
 
-i.van-icon-skin:before { content: "\e7cd"; }
-
-i.van-icon-search:before { content: "\e741"; }
-
-i.van-icon-searchfill:before { content: "\e742"; }
+.van-icon-searchfill:before { content: "\e742"; }

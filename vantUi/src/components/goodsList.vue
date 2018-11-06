@@ -109,7 +109,8 @@ export default {
     setNewsApi: function() {
       var _this = this
       api.JH_news("/news/index", "type=top&key=123456").then(res => {
-        // console.log(res);
+        console.log(JSON.stringify(res));
+
         _this.newsListShow = res.articles;
       });
     }
