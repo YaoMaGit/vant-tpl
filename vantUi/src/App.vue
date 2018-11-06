@@ -1,8 +1,13 @@
 <template>
   <div id="app">
-      <transition name="slide-fade">
-        <router-view/>
-      </transition>
+    
+          <transition name="slide-fade">
+            <keep-alive>
+              <router-view/>
+            </keep-alive>
+          </transition>
+    
+
     <tabbar></tabbar>
   </div>
 </template>
@@ -13,6 +18,11 @@ export default {
   name: "app",
   components: {
     tabbar
+  },
+  data() {
+    return {
+      goodslist: "goodslist"
+    };
   }
 };
 </script>
@@ -25,7 +35,7 @@ export default {
   color: #2c3e50;
 }
 .slide-fade-enter-active {
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 .slide-fade-enter
 /* .slide-fade-leave-active for below version 2.1.8 */ {

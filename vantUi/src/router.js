@@ -29,6 +29,16 @@ export default new Router({
       path: '/Mine',
       name: 'Mine',
       component: () => import('./views/Mine.vue')
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('./views/login/login.vue')
+    },
+    {
+      path: '/login_tel',
+      name: 'login_tel',
+      component: () => import('./views/login/login_tel.vue')
     }
   ]
 })

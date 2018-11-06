@@ -1,7 +1,9 @@
 <template>
   <div class="home">
-
-              <!-- <goodsList></goodsList> -->
+              <keep-alive>
+                  <goodsList></goodsList>
+              </keep-alive>
+             
               <div>
                 {{countfn}}
               </div>
