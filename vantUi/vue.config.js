@@ -19,7 +19,7 @@ module.exports = {
     //   lintOnSave：{ type:Boolean default:true } 问你是否使用eslint
     lintOnSave: false,
     //如果你想要在生产构建时禁用 eslint-loader，你可以用如下配置
-    lintOnSave: process.env.NODE_ENV !== 'production',
+    // lintOnSave: process.env.NODE_ENV !== 'production',
    
     //是否使用包含运行时编译器的 Vue 构建版本。设置为 true 后你就可以在 Vue 组件中使用 template 选项了，但是这会让你的应用额外增加 10kb 左右。(默认false)
     // runtimeCompiler: false,
@@ -37,7 +37,7 @@ module.exports = {
       host: "localhost",
       port: 8080, // 端口号
       https: false, // https:{type:Boolean}
-      open: true, //配置自动启动浏览器
+      open: false, //配置自动启动浏览器
       // proxy: 'http://localhost:4000' // 配置跨域处理,只有一个代理
    
       // 配置多个代理

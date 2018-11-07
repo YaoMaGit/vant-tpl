@@ -1,6 +1,6 @@
 <template>
   <div class="mine">
-个人中心
+      个人中心
   </div>
 </template>
 
@@ -14,3 +14,8 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+
+</style>
+

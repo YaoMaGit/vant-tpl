@@ -20,33 +20,47 @@ export default {
         {
           name: "首页",
           icon: "dianpu",
-          icon_active:'dianpufill',
-          bath:'./Home',
+          icon_active: "dianpufill",
+          bath: "./Home"
         },
         {
           name: "分类",
-          icon: "search",
-          icon_active:'searchfill',
-          bath:'./Class',
+          icon: "search1",
+          icon_active: "searchfill",
+          bath: "./Class"
         },
         {
           name: "圈子",
           icon: "skin",
-          icon_active:'skinfill',
-          bath:'./Pop',
+          icon_active: "skinfill",
+          bath: "./Pop"
         },
         {
           name: "我的",
           icon: "wode",
-          icon_active:'wodefill',
-          bath:'./Mine',
-        },
+          icon_active: "wodefill",
+          bath: "./Mine"
+        }
       ]
     };
   },
-  created() {
+  watch: {
     
+    $route(to, from) {
+      let _this =this
+      console.log(to.name)
+      if (to.name == "Home") {
+        _this.active = 0;
+      } else if (to.name == "Class") {
+        _this.active = 1;
+      } else if (to.name == "Pop") {
+        _this.active = 2;
+      } else if (to.name == "Mine") {
+        _this.active = 3;
+      }
+    }
   },
+  created() {}
 };
 </script>
 <style>
