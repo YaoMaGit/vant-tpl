@@ -63,5 +63,6 @@ export default {
   created() {}
 };
 </script>
-<style>
+<style lang="less" scoped>
+@import '../../static/themes/theme.less';
 </style>
