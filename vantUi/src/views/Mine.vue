@@ -17,7 +17,7 @@
             <div>今日收益(元)</div>
             <div class="paddingmax_div">99￥</div>
           </van-col>
-          <van-col span="9">span: 8</van-col>
+          <van-col span="9" class="hide_fff">span: 8</van-col>
           <van-col  span="7"><div class="radius_div"><div>转化率</div><div>0.7%</div></div></van-col>
         </van-row>
 
@@ -31,11 +31,59 @@
           <div class="paddingmax_div">2</div></van-col>
         </van-row>
         <van-row >
-          <van-col span="12" ><div  class="van-hairline--top van-hairline--right paddingmin_div">明细</div></van-col>
-          <van-col span="12"><div  class="van-hairline--top paddingmin_div">提现</div></van-col>
+          <van-col span="12" >
+            <div  class="van-hairline--top van-hairline--right paddingmin_div reward_div">明细</div>
+            </van-col>
+          <van-col span="12">
+            <div  class="van-hairline--top paddingmin_div reward_div">提现</div>
+          </van-col>
         </van-row>
       </div>
+      <!-- 我的订单 -->
+      <div class="goodsorder_div">
+        <div >
+          <van-row>
+            <van-col span="7">
+              <img class="goodstitle_img" src="../../static/images/set.png" alt="">
+              <span>我的订单:</span>
+            </van-col>
+            <van-col span="14" class="hide_fff">xxxxxxx</van-col>
+            <van-col span="3">
+              <img class="goodstitle_img" src="../../static/images/set.png" alt="">
+            </van-col>
+          </van-row>
+        </div>
+<div>
+          <van-row>
+            <van-col span="6"> 
+              <div><img class="type_img" src="../../static/images/set.png" alt=""></div>  
+              <div>全部</div>
+            </van-col>
+            <van-col span="6">
+              <div><img class="type_img" src="../../static/images/set.png" alt=""></div>  
+              <div>已结算</div>
+            </van-col>
+            <van-col span="6">
+              <div><img class="type_img" src="../../static/images/set.png" alt=""></div>  
+              <div>已付款</div>
+            </van-col>
+            <van-col span="6">
+              <div><img class="type_img" src="../../static/images/set.png" alt=""></div>  
+              <div>已失效</div>
+            </van-col>
+        </van-row>
+</div>
 
+      </div>
+<!-- 单元 -->
+      <div class="list_div">
+          <van-cell-group>
+            <van-cell title="我的团队" icon="location" is-link />
+            <van-cell title="邀请海报" icon="location" is-link />
+            <van-cell title="客服中心" icon="location" is-link />
+            <van-cell title="帮助" icon="location" is-link />
+          </van-cell-group>
+      </div>
   </div>
 </template>
 
@@ -50,19 +98,23 @@ export default {
 
 <style lang="less" scoped>
 @import "../../static/themes/var.less";
-.paddingmax_div{
-  margin:20px 0; 
+.paddingmax_div {
+  margin: 20px 0;
 }
-.paddingmin_div{
-  padding:5px 0;
+.paddingmin_div {
+  padding: 5px 0;
 }
+.hide_fff {
+  color: #fff;
+}
+
 .header_div {
   display: flex;
   font-size: @font-size12;
   padding-top: 15px;
   > div:nth-child(1) {
     flex-grow: 1;
-    background: red;
+    // background: red;
     img {
       width: 45px;
       height: 45px;
@@ -70,13 +122,13 @@ export default {
   }
   > div:nth-child(2) {
     flex-grow: 8;
-    background: blue;
+    // background: blue;
     text-align: left;
     padding-top: 10px;
   }
   > div:nth-child(3) {
     flex-grow: 1;
-    background: red;
+    // background: red;
     img {
       width: 25px;
       height: 25px;
@@ -89,15 +141,53 @@ export default {
   border: 1px solid #ccc;
   margin: 10px 10px 0px 10px;
   padding: 5px;
+  font-size: @font-size12;
   .radius_div {
     width: 60px;
     height: 60px;
     border-radius: 50px;
     border: 1px solid #ccc;
     font-size: @font-size12;
-    >div{
-      margin-top:10px; 
+    > div {
+      margin-top: 10px;
     }
+  }
+  .reward_div {
+    color: red;
+  }
+}
+
+.goodsorder_div {
+  font-size: @font-size12;
+  > div:nth-child(1) {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+
+    margin-top: 10px;
+  }
+  > div:nth-child(2) {
+    border-bottom: 1px solid #ccc;
+  }
+  .goodstitle_img {
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .type_img {
+    width: 40px;
+    height: 40px;
+    // display: block;
+    // vertical-align: bottom;
+  }
+  //   .type_img + span{
+  //   display: block;
+  // }
+}
+.list_div{
+  margin-top: 10px;
+  .van-cell__title{
+    text-align: left;
   }
 }
 </style>

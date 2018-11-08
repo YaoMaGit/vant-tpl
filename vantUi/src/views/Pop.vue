@@ -1,6 +1,9 @@
 <template>
   <div class="pop">
-POP
+<van-cell-group>
+  <van-cell icon="location" title="单元格" is-link />
+  <van-cell icon="location" title="单元格" is-link value="内容" />
+</van-cell-group>
   </div>
 </template>
 
