@@ -1,9 +1,17 @@
-#vue + vant + axios + vuex 
+#Vue + vantUI + Axios + Vuex 
 
-淘客商城项目
+淘商城项目
 
-vant非常适合移动端商城  https://youzan.github.io/vant/#/zh-CN/intro
-vuex负责全局状态
-axios异步处理
+vantUI非常适合移动端商城  https://youzan.github.io/vant/#/zh-CN/intro
+Vuex
 
-谢谢star
+Better Scroll
+封装scroll组件 增强页面效果
+this.scroll = new BScroll(this.$refs.wrapper, {
+          probeType: this.probeType,
+          click: this.click,
+        })
+        
+Axios 请求
+
+谢谢 star ⭐⭐⭐⭐⭐
