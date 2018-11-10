@@ -38,15 +38,12 @@ export default {
   methods: {
     max() {
       this.$store.commit("max");
-      //
-      console.log(this.$store.state.count)
-//
+
     },
     min() {
-      console.log(this.$store.state.count)
-//
+
       this.$store.commit("min");
-//
+
     }
   }
 };

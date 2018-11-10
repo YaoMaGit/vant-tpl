@@ -8,7 +8,7 @@
           </transition>
     
 
-    <tabbar></tabbar>
+    <tabbar class="tabbar"></tabbar>
   </div>
 </template>
 <script>
@@ -34,6 +34,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   
+}
+.tabbar{
+  position: fixed;
+  bottom:0px;
 }
 .slide-fade-enter-active {
   transition: all 0.3s ease;

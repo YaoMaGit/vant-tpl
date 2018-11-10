@@ -1,5 +1,8 @@
 <template>
-  <div class="mine">
+  <div class="wrapper" ref="wrapper">
+    <div class="content">
+
+    
       <div class="header_div">
         <div><img src="../../static/images/jingdong.png" alt=""></div>
         <div>
@@ -11,46 +14,49 @@
         </div>
       </div>
 
-      <div class="card_div van-hairline--surround">
+      <div class="card_div">
         <van-row>
           <van-col span="8">
             <div>今日收益(元)</div>
             <div class="paddingmax_div">99￥</div>
           </van-col>
           <van-col  span="8" offset="8">
-            <van-circle
-              v-model="currentRate"
-              color="#13ce66"
-              fill="#fff"
-              size="80px"
-              layer-color="#eee"
-              text="转化率50.2%"
-              :rate="rate"
-              :speed="20"
-              :clockwise="false"
-              :stroke-width="60"
-            />
+            <div>
+                <van-circle
+                  v-model="currentRate"
+                  color="#13ce66"
+                  fill="#fff"
+                  size="80px"
+                  layer-color="#eee"
+                  text="转化率50.2%"
+                  :rate="rate"
+                  :speed="70"
+                  :clockwise="false"
+                  :stroke-width="80"
+                />
+            </div>
+            
           </van-col>
         </van-row>
 
-<div class="back_div">
-              <van-row>
-          <van-col span="8"><div>存款金额(元)</div>
-          <div class="paddingmax_div">0</div></van-col>
-          <van-col span="8"><div>累计收益(元)</div>
-          <div class="paddingmax_div">16.5</div></van-col>
-          <van-col span="8"><div>可用余额(元)</div>
-          <div class="paddingmax_div">2</div></van-col>
-        </van-row>
-        <van-row >
-          <van-col span="12" >
-            <div  class="van-hairline--top van-hairline--right paddingmin_div reward_div">明细</div>
+      <div class="back_div">
+          <van-row>
+            <van-col span="8"><div>存款金额(元)</div>
+            <div class="paddingmax_div">0</div></van-col>
+            <van-col span="8"><div>累计收益(元)</div>
+            <div class="paddingmax_div">16.5</div></van-col>
+            <van-col span="8"><div>可用余额(元)</div>
+            <div class="paddingmax_div">2</div></van-col>
+          </van-row>
+          <van-row >
+            <van-col span="12" >
+              <div  class="van-hairline--right paddingmin_div reward_div">明细</div>
             </van-col>
-          <van-col span="12">
-            <div  class="van-hairline--top paddingmin_div reward_div">提现</div>
-          </van-col>
-        </van-row>
-</div>
+            <van-col span="12">
+              <div  class="paddingmin_div reward_div">提现</div>
+            </van-col>
+          </van-row>
+      </div>
 
       </div>
       <!-- 我的订单 -->
@@ -89,30 +95,75 @@
 <!-- 单元 -->
       <div class="list_div">
           <van-cell-group>
-            <van-cell title="我的团队" icon="location" is-link />
-            <van-cell title="邀请海报" icon="location" is-link />
+            <van-cell title="我的团队" @click="xxx()" icon="location" is-link />
+            <van-cell title="邀请海报" @click="xxxx()" icon="location" is-link />
             <van-cell title="客服中心" icon="location" is-link />
             <van-cell title="帮助" icon="location" is-link />
           </van-cell-group>
+      </div>
       </div>
   </div>
 </template>
 
 <script>
+import BScroll from "better-scroll";
+
 export default {
   name: "home",
   components: {},
-    data() {
+   props: {
+      /**
+       * 1 滚动的时候会派发scroll事件，会截流。
+       * 2 滚动的时候实时派发scroll事件，不会截流。
+       * 3 除了实时派发scroll事件，在swipe的情况下仍然能实时派发scroll事件
+       */
+      probeType: {
+        type: Number,
+        default: 1
+      },
+      /**
+       * 点击列表是否派发click事件
+       */
+      click: {
+        type: Boolean,
+        default: true
+      },
+   },
+  data() {
     return {
       currentRate: 0,
-      rate:50,
+      rate: 50
     };
   },
+  created() {
+    var _this = this;
+    _this.$nextTick(() => {
+      _this._initScroll();
+    });
+  },
+  methods: {
+    _initScroll() {
+      this.scroll1 = new BScroll(this.$refs.wrapper, {
+        click: this.click,
+      }); //注意此处是 this.$refs.xxx
+    },
+    xxx(){
+      alert("xxxxx")
+    },
+    xxxx(){
+      alert("dianwo")
+    }
+  }
 };
 </script>
 
 <style lang="less" scoped>
 @import "../../static/themes/var.less";
+.wrapper {
+  width: 100%;
+  height: calc(90vh + 10px);
+  overflow: hidden;
+}
 .paddingmax_div {
   margin: 20px 0;
 }
@@ -122,10 +173,10 @@ export default {
 .hide_fff {
   color: #fff;
 }
-.back_div{
-  background-image:url(../../static/images/user_bg.png); 
-    background-size:100%;
-  background-repeat:no-repeat;  
+.back_div {
+  background-image: url(../../static/images/user_bg.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 .header_div {
   display: flex;
@@ -161,8 +212,9 @@ export default {
   margin: 10px 10px 0px 10px;
   padding: 5px;
   font-size: @font-size12;
+  box-shadow: 0 2px 10px #ccc;
   // background-image:url(../../static/images/home_update.png);
-  background: @orange-dark; 
+  background: @orange-dark;
   .radius_div {
     width: 60px;
     height: 60px;
@@ -182,11 +234,10 @@ export default {
   font-size: @font-size12;
   background: @white;
   > div:nth-child(1) {
-
     margin-top: 10px;
   }
   > div:nth-child(2) {
-    .row_padding{
+    .row_padding {
       padding: 15px 0px;
     }
   }
@@ -204,7 +255,7 @@ export default {
 .list_div {
   margin-top: 10px;
   margin-bottom: 80px;
-  .van-cell__title{
+  .van-cell__title {
     text-align: left;
   }
 }

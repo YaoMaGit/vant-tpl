@@ -108,7 +108,6 @@ export default {
       _this.$api
         .JH_news(_this.$URL.HTTPS.INDEX, "type=top&key=123456")
         .then(res => {
-          console.log(res);
           _this.newsListShow = res.articles;
         });
     }

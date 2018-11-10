@@ -4,7 +4,7 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
  
 // 请求拦截器
 axios.interceptors.request.use(function(config) {
-  console.log(config)
+  // console.log(config)
     return config;
   }, function(error) {
     return Promise.reject(error);
