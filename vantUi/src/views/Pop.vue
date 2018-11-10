@@ -8,38 +8,44 @@
 
     <van-tabs v-model="active" swipeable>
       <van-tab v-for="(value,index) in 3" :title="'选项 ' + value" :key="index"> 
-        内容 {{ value }}
+                  <poplist></poplist>
       </van-tab>
     </van-tabs>
+    <!-- tab单元 -->
+
+
+
+
   </div>
 </template>
 
 <script>
-// import HelloWorld from '@/components/HelloWorld.vue'
+import scroll from "@/components/scroll.vue";
+import poplist from "@/components/pop_list.vue";
 
 export default {
-  name: 'pop',
+  name: "pop",
   components: {
-    
+    poplist
   },
-   data() {
+  data() {
     return {
-      active:0,
+      active: 0,
       images: [
-        'http://shenzhen.southcn.com/content/images/attachement/png/site4/20161025/f8bc12817281197915570e.png',
-        'http://shenzhen.southcn.com/content/images/attachement/png/site4/20161025/f8bc12817281197915570e.png',
+        "http://shenzhen.southcn.com/content/images/attachement/png/site4/20161025/f8bc12817281197915570e.png",
+        "http://shenzhen.southcn.com/content/images/attachement/png/site4/20161025/f8bc12817281197915570e.png"
       ]
     };
   }
-}
+};
 </script>
 
 <style lang="less" scoped>
 @import "../../static/themes/var.less";
-.banner_img{
-  // width: 300px;
-  // height: 600px;
+.scroll_div {
+  width: 100%;
+  height: 90vh;
+  overflow: hidden;
 }
-
 </style>
 

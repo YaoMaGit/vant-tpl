@@ -163,6 +163,8 @@ export default {
   width: 100%;
   height: calc(90vh + 10px);
   overflow: hidden;
+  text-align: center;
+
 }
 .paddingmax_div {
   margin: 20px 0;
