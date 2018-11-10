@@ -11,18 +11,30 @@
         </div>
       </div>
 
-      <div class="card_div">
+      <div class="card_div van-hairline--surround">
         <van-row>
           <van-col span="8">
             <div>今日收益(元)</div>
             <div class="paddingmax_div">99￥</div>
           </van-col>
-          <van-col span="9" class="hide_fff">span: 8</van-col>
-          <van-col  span="7"><div class="radius_div"><div>转化率</div><div>0.7%</div></div></van-col>
+          <van-col  span="8" offset="8">
+            <van-circle
+              v-model="currentRate"
+              color="#13ce66"
+              fill="#fff"
+              size="80px"
+              layer-color="#eee"
+              text="转化率50.2%"
+              :rate="rate"
+              :speed="20"
+              :clockwise="false"
+              :stroke-width="60"
+            />
+          </van-col>
         </van-row>
 
-
-        <van-row>
+<div class="back_div">
+              <van-row>
           <van-col span="8"><div>存款金额(元)</div>
           <div class="paddingmax_div">0</div></van-col>
           <van-col span="8"><div>累计收益(元)</div>
@@ -38,42 +50,41 @@
             <div  class="van-hairline--top paddingmin_div reward_div">提现</div>
           </van-col>
         </van-row>
+</div>
+
       </div>
       <!-- 我的订单 -->
       <div class="goodsorder_div">
-        <div >
-          <van-row>
-            <van-col span="7">
-              <img class="goodstitle_img" src="../../static/images/set.png" alt="">
-              <span>我的订单:</span>
-            </van-col>
-            <van-col span="14" class="hide_fff">xxxxxxx</van-col>
-            <van-col span="3">
-              <img class="goodstitle_img" src="../../static/images/set.png" alt="">
-            </van-col>
-          </van-row>
+        <div class="van-hairline--top van-hairline--bottom">
+              <van-row class="paddingmin_div">
+                    <van-col span="6" style="line-height:20px;">
+                      <span>我的订单</span>
+                    </van-col>
+                    <van-col span="3" offset="15">
+                      <img width="20" src="../../static/images/right.png" alt="">
+                    </van-col>
+              </van-row>
         </div>
-<div>
-          <van-row>
-            <van-col span="6"> 
-              <div><img class="type_img" src="../../static/images/set.png" alt=""></div>  
+        <div class="van-hairline--bottom">
+          <van-row class="row_padding">
+            <van-col  span="6"> 
+              <div><img class="type_img" src="../../static/images/deliver.png" alt=""></div>  
               <div>全部</div>
             </van-col>
             <van-col span="6">
-              <div><img class="type_img" src="../../static/images/set.png" alt=""></div>  
+              <div><img class="type_img" src="../../static/images/pay.png" alt=""></div>  
               <div>已结算</div>
             </van-col>
             <van-col span="6">
-              <div><img class="type_img" src="../../static/images/set.png" alt=""></div>  
+              <div><img class="type_img" src="../../static/images/send.png" alt=""></div>  
               <div>已付款</div>
             </van-col>
             <van-col span="6">
-              <div><img class="type_img" src="../../static/images/set.png" alt=""></div>  
+              <div><img class="type_img" src="../../static/images/delete.png" alt=""></div>  
               <div>已失效</div>
             </van-col>
         </van-row>
-</div>
-
+        </div>
       </div>
 <!-- 单元 -->
       <div class="list_div">
@@ -88,11 +99,15 @@
 </template>
 
 <script>
-// import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
   name: "home",
-  components: {}
+  components: {},
+    data() {
+    return {
+      currentRate: 0,
+      rate:50,
+    };
+  },
 };
 </script>
 
@@ -107,7 +122,11 @@ export default {
 .hide_fff {
   color: #fff;
 }
-
+.back_div{
+  background-image:url(../../static/images/user_bg.png); 
+    background-size:100%;
+  background-repeat:no-repeat;  
+}
 .header_div {
   display: flex;
   font-size: @font-size12;
@@ -138,10 +157,12 @@ export default {
 
 .card_div {
   border-radius: 15px;
-  border: 1px solid #ccc;
+  // border: 1px solid #ccc;
   margin: 10px 10px 0px 10px;
   padding: 5px;
   font-size: @font-size12;
+  // background-image:url(../../static/images/home_update.png);
+  background: @orange-dark; 
   .radius_div {
     width: 60px;
     height: 60px;
@@ -159,14 +180,15 @@ export default {
 
 .goodsorder_div {
   font-size: @font-size12;
+  background: @white;
   > div:nth-child(1) {
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
 
     margin-top: 10px;
   }
   > div:nth-child(2) {
-    border-bottom: 1px solid #ccc;
+    .row_padding{
+      padding: 15px 0px;
+    }
   }
   .goodstitle_img {
     width: 25px;
@@ -175,17 +197,13 @@ export default {
     vertical-align: middle;
   }
   .type_img {
-    width: 40px;
-    height: 40px;
-    // display: block;
-    // vertical-align: bottom;
+    width: 30px;
+    height: 30px;
   }
-  //   .type_img + span{
-  //   display: block;
-  // }
 }
-.list_div{
+.list_div {
   margin-top: 10px;
+  margin-bottom: 80px;
   .van-cell__title{
     text-align: left;
   }

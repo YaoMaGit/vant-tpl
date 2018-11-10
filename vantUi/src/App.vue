@@ -33,6 +33,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  
 }
 .slide-fade-enter-active {
   transition: all 0.3s ease;
