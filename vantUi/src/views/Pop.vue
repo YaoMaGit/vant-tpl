@@ -7,8 +7,10 @@
     </van-swipe>
 
     <van-tabs v-model="active" swipeable>
-      <van-tab v-for="(value,index) in 3" :title="'选项 ' + value" :key="index"> 
-                  <poplist></poplist>
+      <van-tab v-for="(value,index) in tabdata" :title="value" :key="index"> 
+                  <poplist type="0" v-if="index==0"></poplist>
+                  <poplist type="1" v-if="index==1"></poplist>
+                  <poplist type="2" v-if="index==2"></poplist>
       </van-tab>
     </van-tabs>
     <!-- tab单元 -->
@@ -31,6 +33,7 @@ export default {
   data() {
     return {
       active: 0,
+      tabdata:['商品','营销','朋友圈'],
       images: [
         "http://shenzhen.southcn.com/content/images/attachement/png/site4/20161025/f8bc12817281197915570e.png",
         "http://shenzhen.southcn.com/content/images/attachement/png/site4/20161025/f8bc12817281197915570e.png"
@@ -46,6 +49,10 @@ export default {
   width: 100%;
   height: 90vh;
   overflow: hidden;
+}
+.pop{
+    margin-bottom: 100px;
+
 }
 </style>
 
