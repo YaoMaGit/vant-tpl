@@ -1,8 +1,6 @@
 <template>
   <div class="wrapper" ref="wrapper">
     <div class="content">
-
-    
       <div class="header_div">
         <div><img src="../../static/images/jingdong.png" alt=""></div>
         <div>
@@ -95,6 +93,8 @@
 <!-- 单元 -->
       <div class="list_div">
           <van-cell-group>
+            <van-cell title="收藏" @click="xxx()" icon="location" is-link />
+            <van-cell title="足迹" @click="xxx()" icon="location" is-link />
             <van-cell title="我的团队" @click="xxx()" icon="location" is-link />
             <van-cell title="邀请海报" @click="xxxx()" icon="location" is-link />
             <van-cell title="客服中心" icon="location" is-link />
@@ -111,24 +111,16 @@ import BScroll from "better-scroll";
 export default {
   name: "home",
   components: {},
-   props: {
-      /**
-       * 1 滚动的时候会派发scroll事件，会截流。
-       * 2 滚动的时候实时派发scroll事件，不会截流。
-       * 3 除了实时派发scroll事件，在swipe的情况下仍然能实时派发scroll事件
-       */
-      probeType: {
-        type: Number,
-        default: 1
-      },
-      /**
-       * 点击列表是否派发click事件
-       */
-      click: {
-        type: Boolean,
-        default: true
-      },
-   },
+  props: {
+    probeType: {
+      type: Number,
+      default: 1
+    },
+    click: {
+      type: Boolean,
+      default: true
+    }
+  },
   data() {
     return {
       currentRate: 0,
@@ -144,14 +136,14 @@ export default {
   methods: {
     _initScroll() {
       this.scroll1 = new BScroll(this.$refs.wrapper, {
-        click: this.click,
+        click: this.click
       }); //注意此处是 this.$refs.xxx
     },
-    xxx(){
-      alert("xxxxx")
+    xxx() {
+      alert("xxxxx");
     },
-    xxxx(){
-      alert("dianwo")
+    xxxx() {
+      alert("dianwo");
     }
   }
 };
@@ -164,7 +156,6 @@ export default {
   height: calc(90vh + 10px);
   overflow: hidden;
   text-align: center;
-
 }
 .paddingmax_div {
   margin: 20px 0;
