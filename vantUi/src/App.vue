@@ -32,11 +32,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  
-}
-.tabbar{
-  position: fixed;
-  bottom:0px;
+  margin-bottom: 100px;
 }
 .slide-fade-enter-active {
   transition: all 0.3s ease;
