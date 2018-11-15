@@ -51,22 +51,41 @@
 
 <!-- 广告 -->
         <div class="advertsment_div">
-            <img src="../../static/images/team_banner.png" alt="">
+            <img  :src="module_imgs[0]"  alt="">
         </div>
 <!-- 板块 -->
-        <div class="moudle_div">
-            <div class="moudle_left_div">
-                <img :src="module_imgs[0]" alt="">
+        <div class="module_div">
+            <div class="module_left_div">
+                <img :src="module_imgs[1]" alt="">
             </div>
-            <div  class="moudle_right_div">
-                <div  class="moudle_right_top_div">
-                  <img :src="module_imgs[1]" alt="">
-                </div>
-                <div  class="moudle_right_bottom_div">
+            <div  class="module_right_div">
+                <div  class="module_right_top_div">
                   <img :src="module_imgs[2]" alt="">
+                </div>
+                <div  class="module_right_bottom_div">
+                  <img :src="module_imgs[3]" alt="">
                 </div>
             </div>
         </div>
+
+        <div class="list_title_div">
+          <img src="../../static/images/tuijian.png" alt="">
+        </div>
+
+<!-- list -->
+        <div class="tabs_div">
+              <van-tabs @click="tab_clk" @change="tab_change" v-model="active" sticky swipeable>
+                <van-tab v-for="(items,index) in tab_data" :key="index" :title="items.title">
+                  <div id="animated-number-demo">
+                    <input v-model.number="number" type="number" step="20">
+                    <p>{{ animatedNumber }}</p>
+                  </div>
+                  <!-- <goodsList></goodsList> -->
+                </van-tab>
+              </van-tabs>
+        </div>
+
+
   </div>
 </template>
 <script>
@@ -79,25 +98,105 @@ export default {
   },
   data() {
     return {
+       number: 0,
+    tweenedNumber: 0,
       count: "",
+      active:0,
       images: [
         "http://shenzhen.southcn.com/content/images/attachement/png/site4/20161025/f8bc12817281197915570e.png",
         "http://shenzhen.southcn.com/content/images/attachement/png/site4/20161025/f8bc12817281197915570e.png"
       ],
       module_imgs:[
+        'http://api.dhcc.wang/uploads/1062/201811/10/f81a574f12637efdf030068a1e4af9fd.gif',
         'http://api.dhcc.wang/uploads/1062/201811/10/cd81758121215a7dc1c628ce41d9bc42.png',
         'http://api.dhcc.wang/uploads/1062/201811/12/8165ef2a67af7c5b9b99650d1085e0b7.gif',
         'http://api.dhcc.wang/uploads/1062/201811/12/f6e7bd907a4fa6a5f532dc8c9c8886d3.png',
-      ]
+      ],
+      tab_data:[
+            {
+                "id":1,
+                "title":"女装",
+                "image":"http://api.dhcc.wang/uploads//201808/28/9854549730fb6170417597ba30285f29.jpg"
+            },
+            {
+                "id":2,
+                "title":"女鞋",
+                "image":"http://api.dhcc.wang/uploads/1001/201807/27/f73034400142085a73c5c36cd48ffd0c.jpg"
+            },
+            {
+                "id":3,
+                "title":"彩妆",
+                "image":"http://api.dhcc.wang/uploads/1001/201807/27/a6af634069a73e9d672bb9ba82815f40.jpg"
+            },
+            {
+                "id":4,
+                "title":"饰品",
+                "image":"http://api.dhcc.wang/uploads/1001/201807/27/2efacd0590e12eff1927a377c7d4c85d.jpg"
+            },
+            {
+                "id":6,
+                "title":"百货",
+                "image":"http://api.dhcc.wang/uploads/1001/201807/27/462b432a7c5c8b69c0584015ed57ddb4.jpeg"
+            },
+            {
+                "id":7,
+                "title":"箱包",
+                "image":"http://api.dhcc.wang/uploads/1001/201807/27/94159d9f4988a68028670612c36bc3cc.jpg"
+            },
+            {
+                "id":8,
+                "title":"数码",
+                "image":"http://api.dhcc.wang/uploads/1001/201807/27/7b8d7ef511dce0e82a5f552c50a4d5d7.jpeg"
+            },
+            {
+                "id":9,
+                "title":"家居",
+                "image":"http://api.dhcc.wang/uploads/1001/201807/27/6cc437e1cb80b3dd55a02c97ec790bf8.jpg"
+            },
+            {
+                "id":10,
+                "title":"男装",
+                "image":"http://api.dhcc.wang/uploads/1001/201807/27/34d1a87d7d079cbd2de65540f360c1fe.jpg"
+            },
+            {
+                "id":85,
+                "title":"食品",
+                "image":"http://api.dhcc.wang/uploads//201808/29/8454c0818e2b648caebc49575440035c.jpg"
+            },
+            {
+                "id":107,
+                "title":"母婴",
+                "image":"http://api.dhcc.wang/uploads//201809/18/58fa2d2adf4274ad1594e02c5e9ae8f8.jpg"
+            },
+            {
+                "id":115,
+                "title":"运动",
+                "image":"http://api.dhcc.wang/uploads//201810/10/353c13f8ae143dff7e92e9beeb009ada.png"
+            }
+        ],
     };
   },
   created() {},
+  watch: {
+    number: function(newValue) {
+      TweenLite.to(this.$data, 0.5, { tweenedNumber: newValue });
+    }
+  },
   computed: {
+    animatedNumber: function() {
+      return this.tweenedNumber.toFixed(0);
+    },
     countfn() {
       return this.$store.state.count;
     }
   },
   methods: {
+    tab_clk(index, title) {
+      console.log(title)
+    },
+    tab_change(index, title) {
+      console.log(title)
+    },
     max() {
       this.$store.commit("max");
     },
@@ -109,7 +208,7 @@ export default {
 </script>
 
 
-<style lang="less">
+<style lang="less" scoped>
 @import "../../static/themes/var.less";
 
 .top_div {
@@ -169,37 +268,37 @@ export default {
   width: 100%;
   padding-top: 20px;
   img {
-    width: 100px;
+    width: 100%;
     display: block;
     margin: auto;
     // height: 100px;
   }
 }
 
-.moudle_div {
+.module_div {
   width: 100%;
   // height: 188px;
   display: flex;
-  .moudle_left_div {
+  .module_left_div {
     flex: 5;
     // height: 100%;
     // background: red;
     // overflow: hidden;
     // object-fit: cover;
   }
-  .moudle_right_div {
+  .module_right_div {
     flex: 5;
     // height: 100%;
-    .moudle_right_top_div {
+    .module_right_top_div {
       // background: #ccc;
       // width: 100%;
-      // height: 50%;
+      height: 50%;
       // object-fit: cover;
       // overflow: hidden;
     }
-    .moudle_right_bottom_div {
+    .module_right_bottom_div {
       // background: blue;
-      // height: 50%;
+      height: 50%;
       // width: 100%;
       // object-fit: cover;
       // overflow: hidden;
@@ -208,7 +307,21 @@ export default {
   img {
     width: 100%;
     // height: 100%;
+    display: block;
   }
+}
+
+.list_title_div{
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  img{
+    width: 150px;
+    display: inline-block;
+  }
+}
+.tabs_div{
+  margin-top: 15px;
 }
 </style>
 

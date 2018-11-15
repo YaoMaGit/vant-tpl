@@ -34,6 +34,7 @@ export default {
   color: #2c3e50;
   margin-bottom: 100px;
 }
+
 .slide-fade-enter-active {
   transition: all 0.3s ease;
 }
