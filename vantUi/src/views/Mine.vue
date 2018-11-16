@@ -135,7 +135,7 @@ export default {
   },
   methods: {
     _initScroll() {
-      this.scroll1 = new BScroll(this.$refs.wrapper, {
+      this.scroll = new BScroll(this.$refs.wrapper, {
         click: this.click
       }); //注意此处是 this.$refs.xxx
     },
