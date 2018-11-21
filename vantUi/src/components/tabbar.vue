@@ -2,7 +2,7 @@
   <div class="tab">
         <van-tabbar fixed v-model="active">        
             <van-tabbar-item v-for="(item,index) in tabdata" :key="index" :icon="active==index?item.icon_active:item.icon" :to="item.bath">{{item.name}}</van-tabbar-item>
-            <!-- <van-tabbar-item icon="search" to="./Class">分类</van-tabbar-item>
+            <!-- <van-tabbar-item icon="search1" to="./Class">分类</van-tabbar-item>
             <van-tabbar-item icon="skin" to="./Pop">圈子</van-tabbar-item>
             <van-tabbar-item icon="wode" to="./Mine">我的</van-tabbar-item> -->
         </van-tabbar>

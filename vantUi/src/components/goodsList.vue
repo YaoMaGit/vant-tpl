@@ -1,90 +1,24 @@
 <template>
   <div class="goodslist">
-                   <div class="goods-item">
-                    <div class="goods-item-left"><img src="http://static.fenxianglife.com/indexPromo/1cdcf05d39c782ff7f1ac4536c6a0339.jpeg"></div>
-                    <div class="goods-item-right ">
-                        <div class="goods-item-title">im向 独家！ 童趣！！秋季百搭红色圆领长袖慵懒风提花套头毛衣女</div>
-                        <div class="goods-item-gift" style="margin-top: 15px;"><div class="cont_voucher1">58元券
-                          <div class="dotl"></div>
-                          <div class="dotr"></div>
-                        </div></div>
-                        <div class="goods-item-gift" style="margin-top: 15px;">券后价：¥0.9</div>
-                        <div class="goods-item-bot">
-                            <div class="goods-pick-btn ">平台返 ￥35</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="goods-item">
-                    <div class="goods-item-left"><img src="http://static.fenxianglife.com/indexPromo/1cdcf05d39c782ff7f1ac4536c6a0339.jpeg"></div>
-                    <div class="goods-item-right ">
-                        <div class="goods-item-title">im向 独家！ 童趣！！秋季百搭红色圆领长袖慵懒风提花套头毛衣女</div>
-                        <div class="goods-item-gift" style="margin-top: 15px;"><div class="cont_voucher1">58元券
-                          <div class="dotl"></div>
-                          <div class="dotr"></div>
-                        </div></div>
-                        <div class="goods-item-gift" style="margin-top: 15px;">券后价：¥0.9</div>
-                        <div class="goods-item-bot">
-                            <div class="goods-pick-btn ">平台返 ￥35</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="goods-item">
-                    <div class="goods-item-left"><img src="http://static.fenxianglife.com/indexPromo/1cdcf05d39c782ff7f1ac4536c6a0339.jpeg"></div>
-                    <div class="goods-item-right ">
-                        <div class="goods-item-title">im向 独家！ 童趣！！秋季百搭红色圆领长袖慵懒风提花套头毛衣女</div>
-                        <div class="goods-item-gift" style="margin-top: 15px;"><div class="cont_voucher1">58元券
-                          <div class="dotl"></div>
-                          <div class="dotr"></div>
-                        </div></div>
-                        <div class="goods-item-gift" style="margin-top: 15px;">券后价：¥0.9</div>
-                        <div class="goods-item-bot">
-                            <div class="goods-pick-btn ">平台返 ￥35</div>
-                        </div>
-                    </div>
-                </div>
-                                <div class="goods-item">
-                    <div class="goods-item-left"><img src="http://static.fenxianglife.com/indexPromo/1cdcf05d39c782ff7f1ac4536c6a0339.jpeg"></div>
-                    <div class="goods-item-right ">
-                        <div class="goods-item-title">im向 独家！ 童趣！！秋季百搭红色圆领长袖慵懒风提花套头毛衣女</div>
-                        <div class="goods-item-gift" style="margin-top: 15px;"><div class="cont_voucher1">58元券
-                          <div class="dotl"></div>
-                          <div class="dotr"></div>
-                        </div></div>
-                        <div class="goods-item-gift" style="margin-top: 15px;">券后价：¥0.9</div>
-                        <div class="goods-item-bot">
-                            <div class="goods-pick-btn ">平台返 ￥35</div>
-                        </div>
-                    </div>
-                </div>
 
-                                <div class="goods-item">
-                    <div class="goods-item-left"><img src="http://static.fenxianglife.com/indexPromo/1cdcf05d39c782ff7f1ac4536c6a0339.jpeg"></div>
-                    <div class="goods-item-right ">
-                        <div class="goods-item-title">im向 独家！ 童趣！！秋季百搭红色圆领长袖慵懒风提花套头毛衣女</div>
-                        <div class="goods-item-gift" style="margin-top: 15px;"><div class="cont_voucher1">58元券
-                          <div class="dotl"></div>
-                          <div class="dotr"></div>
-                        </div></div>
-                        <div class="goods-item-gift" style="margin-top: 15px;">券后价：¥0.9</div>
-                        <div class="goods-item-bot">
-                            <div class="goods-pick-btn ">平台返 ￥35</div>
-                        </div>
-                    </div>
+      <div class="goods-item" v-for="(item,index) in goods_list" :key='index'>
+            <div class="goods-item-left"><img :src="item.image"></div>
+            <div class="goods-item-right ">
+                <div class="goods-item-title">
+                  <div :class="item.tamll==1?'istmall_div istmall_tmall_div':'istmall_div istmall_taobao_div'"> <b>T</b></div>
+                   <span>{{item.title}}</span>
+                  </div>
+                <div class="goods-item-gift" style="margin-top: 15px;"><div class="cont_voucher1">{{item.quan_price}}券
+                  <div class="dotl"></div>
+                  <div class="dotr"></div>
+                </div></div>
+                <div class="goods-item-gift" style="margin-top: 15px;">券后价：¥{{item.coupon_price}}</div>
+                <div class="goods-item-bot">
+                    <div class="goods-pick-btn ">立即抢购</div>
                 </div>
-                                <div class="goods-item">
-                    <div class="goods-item-left"><img src="http://static.fenxianglife.com/indexPromo/1cdcf05d39c782ff7f1ac4536c6a0339.jpeg"></div>
-                    <div class="goods-item-right ">
-                        <div class="goods-item-title">im向 独家！ 童趣！！秋季百搭红色圆领长袖慵懒风提花套头毛衣女</div>
-                        <div class="goods-item-gift" style="margin-top: 15px;"><div class="cont_voucher1">58元券
-                          <div class="dotl"></div>
-                          <div class="dotr"></div>
-                        </div></div>
-                        <div class="goods-item-gift" style="margin-top: 15px;">券后价：¥0.9</div>
-                        <div class="goods-item-bot">
-                            <div class="goods-pick-btn ">平台返 ￥35</div>
-                        </div>
-                    </div>
-                </div>
+            </div>
+      </div>
+
   </div>
 </template>
 
@@ -96,7 +30,7 @@ export default {
   },
   data() {
     return {
-      newsListShow: []
+      goods_list: []
     };
   },
   created() {
@@ -105,10 +39,10 @@ export default {
   methods: {
     setNewsApi: function() {
       var _this = this;
-      _this.$api
-        .JH_news(_this.$URL.HTTPS.INDEX, "type=top&key=123456")
-        .then(res => {
-          _this.newsListShow = res.articles;
+      _this.$api.HTTP(_this.$URL.HTTPS.INDEX, "type=top&key=123456").then(res => {
+          console.log(res);
+          
+          _this.goods_list = res.data;
         });
     }
   }
@@ -117,78 +51,13 @@ export default {
 
 <style scoped>
 .goodslist {
-  background: rgb(255, 101, 68);
-  box-sizing: border-box;
   min-height: 100%;
-  padding: 8px 0;
   width: 100%;
 }
-.page .page-header {
-  position: relative;
-}
-.page .page-header img {
-  display: block;
-  width: 100%;
-}
-.page .page-header .header-overlap {
-  bottom: 35%;
-  font-size: 4vw;
-  left: 50%;
-  position: absolute;
-  transform: translateX(-50%) translateY(-50%);
-}
-.page .page-header .header-overlap a {
-  color: #fdf5ec;
-}
-a {
-  background: transparent;
-  text-decoration: none;
-}
-.page .page-goods {
-  border-radius: 16px;
-  margin-top: 45px;
-  padding-bottom: 16px;
-  position: relative;
-}
-.page .page-goods,
-.page .page-user {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  /*width: 100%;*/
-  margin: 30px 10px 0;
-}
-.goods-title {
-  position: absolute;
-  transform: translateY(-50%);
-}
-.page .page-goods .goods-title,
-.page .page-user .user-title {
-  align-items: center;
-  background: red;
-  color: #ffdb80;
-  display: flex;
-  font-family: PingFangSC-Semibold;
-  height: 58px;
-  justify-content: center;
-  width: 176px;
-}
-.goods-group {
-  box-sizing: border-box;
-  margin-top: 35px;
-  padding: 0 0;
-  width: 100%;
-}
-.time-info {
-  color: #ffdb80;
-  text-align: center;
-  font-weight: 100;
-  font-size: 0.7rem;
-}
+
 .goods-item {
   background: #fff;
   border-radius: 8px;
-  box-shadow: 0 2px 4px 0 rgba(116, 0, 0, 0.5);
   box-sizing: border-box;
   display: flex;
   height: 160px;
@@ -229,7 +98,6 @@ a {
 .goods-tip {
   box-sizing: border-box;
   color: #ffdb80;
-  font-family: PingFangSC-Regular;
   font-size: 12px;
   line-height: 24px;
   margin-top: 20px;
@@ -293,9 +161,22 @@ a {
 .soldout .goods-item-gift {
   opacity: 0.3;
 }
-.rule {
-  color: #fff;
+.istmall_div{
+  width: 15px;
+  height: 15px;
+  font-size: 12px;
   text-align: center;
-  margin-top: 20px;
+  line-height: 15px;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 3px;
+}
+.istmall_taobao_div{
+  background: #da590e;
+  color: #fff;
+}
+.istmall_tmall_div{
+  background: #cc1018;
+  color: #fff;
 }
 </style>

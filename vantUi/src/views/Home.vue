@@ -73,16 +73,16 @@
         </div>
 
 <!-- list -->
-              <!-- <van-tabs @click="tab_clk" @change="tab_change" v-model="active" sticky swipeable>
+              <van-tabs @click="tab_clk" @change="tab_change" v-model="active" sticky swipeable>
                 <van-tab v-for="(items,index) in tab_data" :key="index" :title="items.title">
-                  <div id="animated-number-demo">
+                  <!-- <div id="animated-number-demo">
                     <input v-model.number="number" type="number" step="20">
                     <p>{{ animatedNumber }}</p>
-                  </div>
-                  
+                  </div> -->
+                    <goodsList></goodsList>
                 </van-tab>
-              </van-tabs> -->
-              <div  class="scroll_div" ref="wrapper11">
+              </van-tabs>
+              <!-- <div  class="scroll_div" ref="wrapper11">
                     <div class="tab_box">
                           <div class="tab_items_box">
                               <div v-for="(item,index) in tab_data" :class="activeTab==index? 'tab-item active':'tab-item'" @click="tab_clk(index)" :key="index">
@@ -90,13 +90,11 @@
                                 </div>
                           </div>
                       </div>
-              </div>
-<!-- <goodsList></goodsList> -->
+              </div> -->
+
   </div>
 </template>
 <script>
-// import scroll from "@/components/scroll.vue";
-import BScroll from "better-scroll";
 import goodsList from "@/components/goodsList.vue";
 
 export default {
@@ -199,9 +197,6 @@ export default {
   },
   created() {
     var _this = this;
-    _this.$nextTick(() => {
-      _this._initScroll();
-    });
   },
   watch: {
     number: function(newValue) {
@@ -222,20 +217,6 @@ export default {
     },
     tab_change(index, title) {
       console.log(title);
-    },
-    _initScroll() {
-      this.$nextTick(() => {
-        if (!this.scroll) {
-                  this.scroll = new BScroll(this.$refs.wrapper11, {
-          click: true,
-          scrollX: true,
-          eventPassthrough: "vertical" //忽略竖直方向的滚动
-        });
-        } else {
-          this.scroll.refresh();
-        }
-
-      });
     },
     max() {
       this.$store.commit("max");
