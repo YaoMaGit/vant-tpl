@@ -8,7 +8,7 @@
           </transition>
     
 
-    <tabbar class="tabbar"></tabbar>
+    <tabbar v-if="show" class="tabbar"></tabbar>
   </div>
 </template>
 <script>
@@ -21,8 +21,17 @@ export default {
   },
   data() {
     return {
-      goodslist: "goodslist"
+      goodslist: "goodslist",
+      show:true,
     };
+  },
+  watch: {
+    $route(to, from) {
+      let _this = this;
+      if (to.name == "goods_detail") {
+        _this.show = false;
+      }
+    }
   }
 };
 </script>

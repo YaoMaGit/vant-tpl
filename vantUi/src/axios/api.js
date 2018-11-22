@@ -1,10 +1,10 @@
 import axios from 'axios'
- 
-axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
+// axios.defaults.baseURL = 'https://api.dhcc.wang'
+// axios.defaults.headers.post['Content-Type'] = 'application/json';
  
 // 请求拦截器
 axios.interceptors.request.use(function(config) {
-  // console.log(config)
+  console.log(config)
     return config;
   }, function(error) {
     return Promise.reject(error);

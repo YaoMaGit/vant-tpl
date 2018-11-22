@@ -57,6 +57,8 @@ export default {
         _this.active = 2;
       } else if (to.name == "Mine") {
         _this.active = 3;
+      } else if (to.name == "goods_detail") {
+        _this.active = 3;
       }
     }
   },

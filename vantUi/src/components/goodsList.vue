@@ -1,12 +1,13 @@
 <template>
   <div class="goodslist">
 
-      <div class="goods-item" v-for="(item,index) in goods_list" :key='index'>
+      <div class="goods-item" v-for="(item,index) in goods_list" :key='index' @click="goods_detail_clk(item)">
             <div class="goods-item-left"><img :src="item.image"></div>
             <div class="goods-item-right ">
                 <div class="goods-item-title">
-                  <div :class="item.tamll==1?'istmall_div istmall_tmall_div':'istmall_div istmall_taobao_div'"> <b>T</b></div>
-                   <span>{{item.title}}</span>
+                  <img v-if="item.is_tmall==1" src="../../static/images/home_tab_tb_d.png" alt="">
+                  <img v-else src="../../static/images/home_tab_tm_d.png" alt="">
+                  <span>{{item.title}}</span>
                   </div>
                 <div class="goods-item-gift" style="margin-top: 15px;"><div class="cont_voucher1">{{item.quan_price}}券
                   <div class="dotl"></div>
@@ -39,17 +40,22 @@ export default {
   methods: {
     setNewsApi: function() {
       var _this = this;
-      _this.$api.HTTP(_this.$URL.HTTPS.INDEX, "type=top&key=123456").then(res => {
+      _this.$api
+        .HTTP(_this.$URL.HTTPS.INDEX, "type=top&key=123456")
+        .then(res => {
           console.log(res);
-          
+
           _this.goods_list = res.data;
         });
+    },
+    goods_detail_clk: function(item) {
+      this.$router.push({ name: "goods_detail"});
     }
   }
 };
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 .goodslist {
   min-height: 100%;
   width: 100%;
@@ -76,7 +82,6 @@ export default {
   text-align: left;
 }
 .goods-item-left img {
-  border-radius: 4px 0 0 4px;
   height: 100%;
   width: 100%;
 }
@@ -161,22 +166,13 @@ export default {
 .soldout .goods-item-gift {
   opacity: 0.3;
 }
-.istmall_div{
-  width: 15px;
-  height: 15px;
-  font-size: 12px;
-  text-align: center;
-  line-height: 15px;
-  display: inline-block;
-  vertical-align: middle;
-  border-radius: 3px;
-}
-.istmall_taobao_div{
-  background: #da590e;
-  color: #fff;
-}
-.istmall_tmall_div{
-  background: #cc1018;
-  color: #fff;
+.goods-item-title {
+  img {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    vertical-align: middle;
+    margin-right: 5px;
+  }
 }
 </style>
