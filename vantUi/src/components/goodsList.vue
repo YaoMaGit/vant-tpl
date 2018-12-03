@@ -41,7 +41,7 @@ export default {
     setNewsApi: function() {
       var _this = this;
       _this.$api
-        .HTTP(_this.$URL.HTTPS.INDEX, "type=top&key=123456")
+        .APIGET(_this.$URL.HTTPS.GOODSLIST, "type=top&key=123456")
         .then(res => {
           console.log(res);
 

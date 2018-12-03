@@ -45,6 +45,20 @@ const detailData = function() {
         data: newArticleObject
     }
 }
+
+const login = function() {
+    let newArticleObject = {
+        code: 1,
+        data:{
+            token: Random.guid(),
+        }
+    }
+ 
+    return {
+        data: newArticleObject
+    }
+}
 // Mock.mock( url, post/get , 返回的数据)；
-Mock.mock('/index/goodslist', 'post', goodslistData);
+Mock.mock('/index/goodslist', 'get', goodslistData);
 Mock.mock('/index/goodsdetail', 'post', detailData);
+Mock.mock('/index/login', 'post', login);
