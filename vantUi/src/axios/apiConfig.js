@@ -1,19 +1,13 @@
 import axios from 'axios'
 
-// axios.defaults.baseURL = 'https://api.dhcc.wang'
 // axios.defaults.headers.post['Content-Type'] = 'application/json';
 // 配置请求拦截
 var _this = this
-axios.interceptors.request.use(config => {
-  if (this.$store.state.token) {  // 每次发送请求之前判断是否存在token，如果存在，则统一在http请求的header都加上token，不用每次请求都手动添加了
-    config.headers.Authorization = _this.$store.state.token;
-  }
-  return config
-})
+
 
 // 请求拦截器
 axios.interceptors.request.use(function (config) {
-  console.log(config)
+  console.log(config.headers.Authorization)
   return config;
 }, function (error) {
   return Promise.reject(error);

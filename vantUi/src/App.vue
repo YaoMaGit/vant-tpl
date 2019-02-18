@@ -28,8 +28,11 @@ export default {
   watch: {
     $route(to, from) {
       let _this = this;
-      if (to.name == "goods_detail") {
+      console.log(to)
+      if (to.name == "goods_detail"||to.name == "login") {
         _this.show = false;
+      }else{
+         _this.show = true;
       }
     }
   }

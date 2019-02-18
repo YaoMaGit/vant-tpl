@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    token:'111',
+    token:'',
     count: 100,
   },
   mutations: {

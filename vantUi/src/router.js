@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import store from './store/index'
+
 Vue.use(Router)
 
 export default new Router({
@@ -42,7 +44,15 @@ export default new Router({
     {
       path: '/goods_detail',
       name: 'goods_detail',
-      component: () => import('./components/goods_detail.vue')
+      component: () => import('./components/goods_detail.vue'),
+      beforeEnter: (to, from, next) => {
+        console.log(store.state.token)
+        if(store.state.token){
+          next()
+        }else{
+          next({ path: '/login' })
+        }
+      }
     }
   ]
 })

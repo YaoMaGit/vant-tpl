@@ -48,8 +48,7 @@ export default {
             // _this.$store.state.token =  res.data.data.token;
             _this.$store.commit("tokenFn",res.data.data.token)
             console.log(_this.$store.state.token)
-            
-
+          
           });
           
         }
