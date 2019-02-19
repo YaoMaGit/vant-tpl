@@ -28,7 +28,7 @@ export default {
   watch: {
     $route(to, from) {
       let _this = this;
-      console.log(to)
+      // console.log(to)
       if (to.name == "goods_detail"||to.name == "login") {
         _this.show = false;
       }else{

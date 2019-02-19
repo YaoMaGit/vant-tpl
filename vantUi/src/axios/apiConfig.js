@@ -1,4 +1,5 @@
 import axios from 'axios'
+axios.defaults.baseURL = 'http://localhost:3000'
 
 // axios.defaults.headers.post['Content-Type'] = 'application/json';
 // 配置请求拦截
@@ -7,7 +8,7 @@ var _this = this
 
 // 请求拦截器
 axios.interceptors.request.use(function (config) {
-  console.log(config.headers.Authorization)
+  console.log(config)
   return config;
 }, function (error) {
   return Promise.reject(error);
