@@ -1,0 +1,141 @@
+
+@globleColor:#8CC63F;
+//Box
+.view{
+    padding:20px;
+    background: #ffffff;
+    margin-bottom: 10px;
+}
+//图标颜色
+.globleIcon{
+    color: @globleColor
+}
+//设置展开 收起
+.globleAccountP{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.col {
+  text-align: center;
+}
+.toothTest {
+  width: 100%;
+  height: 100vh;
+  background: url("../../../static/BG@2xtest.png");
+  background-size: 100% 100%;
+  .bordview {
+    height: 80%;
+    margin: auto;
+    margin: 0 5px;
+    padding: 25px;
+    background: url('../../../static/testBg.png');
+    background-size: 100% 100%;
+    .title {
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+    .col {
+      text-align: center;
+    }
+        //选择类型1 图片
+    .imgDiv {
+      width: 113px;
+      height: 125px;
+      background: #EEEEEE;
+      text-align: center;
+      padding: 15px;
+      display: inline-block;
+      border-radius: 5px;
+      line-height: 155px;
+      img {
+        height: 55px;
+      }
+    }
+    .imgDivActive {
+      border: 1px solid #00a7fb;
+      width: 111px;
+      height: 123px;
+      background: #EEEEEE;
+      text-align: center;
+      padding: 15px;
+      display: inline-block;
+      border-radius: 5px;
+      line-height: 155px;
+      img {
+        height: 55px;
+      }
+    }
+    .selectDiv {
+      padding: 15px 0;
+      .active {
+        color: #00a7fb;
+      }
+      .defult {
+        color: #767676;
+      }
+      img {
+        width: 15px;
+        vertical-align: middle;
+      }
+      span {
+        font-size: 13px;
+      }
+    }
+    //选择类型2 文字
+    .pagetype2{
+      margin-top: 120px;
+      .pagetypeItem{
+        .selectbox {
+          padding: 10px 0;
+          background: #ffffff;
+          border-radius: 25px;
+          text-align: center;
+          font-size: 13px;
+          margin-top: 20px;
+          position: relative;
+          img {
+            width: 15px;
+            vertical-align: middle;
+            position: absolute;
+            left: 25px;
+            top:11px;
+          }
+          span {
+            font-size: 13px;
+          }
+        }
+        .active {
+          color: #00a7fb;
+          border: 1px solid #00a7fb;
+        }
+        .defult {
+          color: #767676;
+          border: 1px solid #767676;
+        }
+      }
+    }
+
+
+  }
+  .btnNext {
+    width: 250px;
+    position: fixed;
+    bottom: 0px;
+    left: calc(50% - 125px);
+  }
+}
+
+//图标外框
+.iconSpan{
+  padding: 4px 2px 1px 3px;
+  border-radius: 50%;
+  border: 1px solid @globleColor;
+}
+
+.van-cell{
+  padding: 15px 15px;
+}
+  
